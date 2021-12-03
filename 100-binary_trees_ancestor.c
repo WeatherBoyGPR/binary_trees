@@ -9,17 +9,17 @@
  */
 int is_desc(const binary_tree_t *parent, const binary_tree_t *child)
 {
+	int res = 0;
+
 	if (parent == NULL || child == NULL)
 		return (0);
 	if (parent == child)
 		return (1);
-	if (parent->right == child || parent->left == child)
-		return (1);
 	if (parent->right)
-		return (is_desc(parent->right, child));
+		res = res | (is_desc(parent->right, child));
 	if (parent->left)
-		return (is_desc(parent->left, child));
-	return (0);
+		res = res | (is_desc(parent->left, child));
+	return (res);
 }
 
 /**
