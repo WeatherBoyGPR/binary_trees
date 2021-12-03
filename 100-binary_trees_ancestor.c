@@ -11,6 +11,8 @@ int is_desc(const binary_tree_t *parent, const binary_tree_t *child)
 {
 	if (parent == NULL || child == NULL)
 		return (0);
+	if (parent == child)
+		return (1);
 	if (parent->right == child || parent->left == child)
 		return (1);
 	if (parent->right)
